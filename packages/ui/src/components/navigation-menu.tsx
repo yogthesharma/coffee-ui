@@ -306,10 +306,10 @@ const NavigationMenuViewport = React.forwardRef<
         data-navigation-menu-viewport=""
         data-state={value ? "open" : "closed"}
         className={cn(
-          "pointer-events-auto relative min-h-0 w-max max-w-[min(100vw-2rem,42rem)] origin-top transition-[opacity,transform] duration-200 ease-out",
+          "pointer-events-auto relative min-h-0 w-max max-w-[min(100vw-2rem,42rem)] origin-top motion-reduce:transition-none motion-safe:transition-[opacity,transform] motion-safe:duration-200 motion-safe:ease-out",
           value
-            ? "opacity-100 scale-100"
-            : "pointer-events-none scale-[0.98] opacity-0"
+            ? "scale-100 opacity-100"
+            : "pointer-events-none scale-100 opacity-0 motion-safe:scale-[0.98]"
         )}
       />
     </div>
@@ -360,7 +360,7 @@ const NavigationMenuIndicator = React.forwardRef<
       ref={ref}
       aria-hidden
       className={cn(
-        "pointer-events-none absolute bottom-0 h-0.5 rounded-full bg-primary transition-[left,width,opacity] duration-200 ease-out",
+        "pointer-events-none absolute bottom-0 h-0.5 rounded-full bg-primary motion-reduce:transition-none motion-safe:transition-[left,width,opacity] motion-safe:duration-200 motion-safe:ease-out",
         className
       )}
       style={{
@@ -475,7 +475,7 @@ const NavigationMenuTrigger = React.forwardRef<
     };
 
     const triggerClassName = cn(
-      "group inline-flex h-10 items-center justify-center gap-1 rounded-md bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50",
+      "group inline-flex h-10 items-center justify-center gap-1 rounded-md bg-background px-4 py-2 text-sm font-medium text-foreground motion-safe:transition-colors motion-safe:duration-200 hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50",
       open && "bg-muted/80",
       className
     );
@@ -551,7 +551,7 @@ const NavigationMenuTrigger = React.forwardRef<
         {children}
         <IconChevronDown
           className={cn(
-            "size-4 shrink-0 opacity-70 transition-transform duration-200",
+            "size-4 shrink-0 opacity-70 motion-reduce:transition-none motion-safe:transition-transform motion-safe:duration-200",
             open && "rotate-180"
           )}
           stroke={1.75}
@@ -788,7 +788,7 @@ const NavigationMenuLink = React.forwardRef<
   const { setValue } = useNavigationMenuRoot("NavigationMenuLink");
 
   const classes = cn(
-    "block select-none rounded-md px-3 py-2 text-sm text-popover-foreground no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:bg-accent focus-visible:text-accent-foreground",
+    "block select-none rounded-md px-3 py-2 text-sm text-popover-foreground no-underline outline-none motion-safe:transition-colors motion-safe:duration-200 hover:bg-accent hover:text-accent-foreground focus-visible:bg-accent focus-visible:text-accent-foreground",
     className
   );
 

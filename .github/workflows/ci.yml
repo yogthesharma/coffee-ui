@@ -32,3 +32,9 @@ jobs:
 
       - name: Build Storybook
         run: pnpm --filter @coffee-ui/playground run build-storybook
+
+      - name: Install Playwright browser
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: Visual regression (Playwright)
+        run: pnpm test:visual

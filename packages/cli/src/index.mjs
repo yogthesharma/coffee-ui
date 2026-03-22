@@ -1,12 +1,47 @@
 #!/usr/bin/env node
 import { fileURLToPath } from "node:url";
 import { dirname, join, resolve } from "node:path";
+import { readFileSync } from "node:fs";
 import { readFile, writeFile, mkdir, access } from "node:fs/promises";
 import { constants as fsConstants } from "node:fs";
 import { Command } from "commander";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const REGISTRY_ROOT = resolve(__dirname, "../../registry");
+
+/** Registry layout: `<root>/components/<name>/manifest.json` */
+async function resolveRegistryRoot() {
+  if (process.env.COFFEE_UI_REGISTRY) {
+    const p = resolve(process.env.COFFEE_UI_REGISTRY);
+    if (await pathExists(join(p, "components"))) {
+      return p;
+    }
+    console.warn(
+      `COFFEE_UI_REGISTRY is set but not a valid registry (missing components/): ${p}`
+    );
+  }
+  const candidates = [
+    resolve(__dirname, "../registry"),
+    resolve(__dirname, "../../registry"),
+  ];
+  for (const c of candidates) {
+    if (await pathExists(join(c, "components"))) {
+      return c;
+    }
+  }
+  throw new Error(
+    "Coffee UI: could not find the component registry (need a folder containing `components/`). " +
+      "Reinstall the `coffee-ui` package, or set COFFEE_UI_REGISTRY to an absolute path to your registry."
+  );
+}
+
+function readCliVersion() {
+  try {
+    const raw = readFileSync(resolve(__dirname, "../package.json"), "utf8");
+    return JSON.parse(raw).version ?? "0.0.0";
+  } catch {
+    return "0.0.0";
+  }
+}
 
 async function pathExists(p) {
   try {
@@ -46,7 +81,7 @@ const program = new Command();
 program
   .name("coffee-ui")
   .description("Copy UI components from the Coffee UI registry into your app")
-  .version("0.0.1");
+  .version(readCliVersion());
 
 program
   .command("init")
@@ -90,7 +125,7 @@ program
       "  npx coffee-ui add <name> — e.g. button, input, field, input-group, spinner, …"
     );
     console.log(
-      "  (see packages/ui/TAXONOMY.md for the full list)"
+      "  See your UI kit docs for component names (this repo: packages/ui/TAXONOMY.md)."
     );
   });
 
@@ -100,6 +135,7 @@ program
   .description("Install a component from the registry")
   .action(async (name) => {
     const cwd = process.cwd();
+    const REGISTRY_ROOT = await resolveRegistryRoot();
     const { config } = await loadComponentsJson(cwd);
     const key = String(name).toLowerCase();
     const manifestPath = join(REGISTRY_ROOT, "components", key, "manifest.json");
@@ -140,6 +176,18 @@ program
           .replace(
             /from\s+["']\.\.\/primitives\/button["']/g,
             `from "./button"`
+          )
+          .replace(
+            /from\s+["']\.\.\/primitives\/toggle["']/g,
+            `from "./toggle"`
+          )
+          .replace(
+            /from\s+["']\.\.\/components\/popover["']/g,
+            `from "./popover"`
+          )
+          .replace(
+            /from\s+["']\.\.\/components\/command["']/g,
+            `from "./command"`
           )
           .replace(
             /from\s+["']\.\/lib\/utils["']/g,

@@ -387,7 +387,7 @@ const CommandItem = React.forwardRef<HTMLButtonElement, CommandItemProps>(
       data-value={value}
       data-keywords={keywords ?? undefined}
       className={cn(
-        "relative flex w-full cursor-pointer select-none items-center gap-2 rounded-sm px-2 py-1.5 text-left text-sm outline-none transition-colors duration-150 ease-out",
+        "relative flex w-full cursor-pointer select-none items-center gap-2 rounded-sm px-2 py-1.5 text-left text-sm outline-none motion-reduce:transition-none motion-safe:transition-colors motion-safe:duration-150 motion-safe:ease-out",
         "focus:bg-accent focus:text-accent-foreground data-[hidden]:hidden",
         "disabled:pointer-events-none disabled:opacity-50",
         className

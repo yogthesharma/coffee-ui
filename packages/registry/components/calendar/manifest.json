@@ -1,0 +1,19 @@
+{
+  "install": [
+    {
+      "from": "../../../ui/src/widgets/calendar.tsx",
+      "filename": "calendar.tsx"
+    },
+    {
+      "from": "../../../ui/src/primitives/button.tsx",
+      "filename": "button.tsx"
+    }
+  ],
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "@tabler/icons-react": "^3.0.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.0.0",
+    "tailwind-merge": "^2.0.0"
+  }
+}

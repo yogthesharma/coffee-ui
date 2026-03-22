@@ -125,6 +125,8 @@ html.dark[data-preset="rose"] {
   }
 }
 
-.coffee-nav-menu-panel-enter {
-  animation: coffee-nav-menu-in 220ms ease-out;
+@media (prefers-reduced-motion: no-preference) {
+  .coffee-nav-menu-panel-enter {
+    animation: coffee-nav-menu-in 220ms ease-out;
+  }
 }

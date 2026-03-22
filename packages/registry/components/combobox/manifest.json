@@ -1,0 +1,36 @@
+{
+  "install": [
+    {
+      "from": "../../../ui/src/widgets/combobox.tsx",
+      "filename": "combobox.tsx"
+    },
+    {
+      "from": "../../../ui/src/components/popover.tsx",
+      "filename": "popover.tsx"
+    },
+    {
+      "from": "../../../ui/src/components/command.tsx",
+      "filename": "command.tsx"
+    },
+    {
+      "from": "../../../ui/src/primitives/button.tsx",
+      "filename": "button.tsx"
+    },
+    {
+      "from": "../../../ui/src/lib/popover-position.ts",
+      "filename": "popover-position.ts"
+    },
+    {
+      "from": "../../../ui/src/lib/merge-refs.ts",
+      "filename": "merge-refs.ts"
+    }
+  ],
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0",
+    "@tabler/icons-react": "^3.0.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.0.0",
+    "tailwind-merge": "^2.0.0"
+  }
+}

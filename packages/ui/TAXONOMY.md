@@ -7,7 +7,7 @@ This document maps those names to how we organize **source** under `src/`.
 |----------------|-------------------|---------|
 | **Foundation** | `foundation/`     | `icons` (plus `lib/utils` at `lib/`) |
 | **Primitives** | `primitives/`     | `aspect-ratio`, `badge`, `button`, `checkbox`, `collapsible`, `field`, `input`, `input-group`, `kbd`, `label`, `link`, `scroll-area`, `separator`, `skeleton`, `spinner`, `switch`, `textarea`, `toggle`, `typography`, `visually-hidden` |
-| **Widgets**    | `widgets/`        | `select`, `select-menu`, `radio-group`, `slider`, `progress`, `avatar` |
+| **Widgets**    | `widgets/`        | `select`, `select-menu`, `radio-group`, `toggle-group`, `combobox`, `calendar`, `date-picker`, `slider`, `progress`, `avatar` |
 | **Components** | `components/`     | `card`, `alert`, `tabs`, `empty-state`, `dialog`, `popover`, `dropdown-menu`, `navigation-menu`, `pagination`, `tooltip`, `sheet`, `sidebar`, `accordion`, `breadcrumb`, `table`, `context-menu`, `toast`, `command` (layout / overlays / content; portals where noted, no Radix) |
 
 Package exports stay stable: `@coffee-ui/ui/button`, `@coffee-ui/ui/icons`, etc.
@@ -15,6 +15,26 @@ Package exports stay stable: `@coffee-ui/ui/button`, `@coffee-ui/ui/icons`, etc.
 ### `input-group`
 
 `input-group.tsx` imports `./input` (shared `inputVariants`). Install **`input`** into the same components directory before or with **`input-group`**, or the relative import will break.
+
+### `toggle-group`
+
+**`ToggleGroup`** with **`type="single"`** (one selection, click again to clear) or **`type="multiple"`** (independent toggles). Pass **`variant`** / **`size`** on the root to style all **`ToggleGroupItem`**s, or override per item. Registry **`coffee-ui add toggle-group`** also copies **`toggle.tsx`** (`toggleVariants`); the CLI rewrites `../primitives/toggle` to `./toggle`.
+
+### `calendar`
+
+**`Calendar`** — single-month grid. **`mode="single"`** (default) or **`mode="range"`** with **`DateRange`** (`{ from, to }`), **`defaultRange`**, **`onSelect`**. Single mode: same **`selected`** / **`defaultSelected`** / **`onSelect`** as before. Range: endpoints **`bg-primary`**, between **`bg-accent/60`**. **`month`** / **`defaultMonth`**, **`onMonthChange`**, **`disabled`**, **`weekStartsOn`**, **`locale`**. **Keyboard**: Tab onto the grid, then arrows, **Home** / **End** (week), **Page Up** / **Page Down** (month), **Enter** / **Space** to select. Registry **`coffee-ui add calendar`** copies **`calendar.tsx`** + **`button.tsx`**.
+
+### `date-picker`
+
+**`DatePicker`** — **`Popover`** + outline trigger (calendar icon + **medium** date or **`placeholder`**) + **`Calendar`** **`mode="single"`**. **`value`** / **`onChange`** (controlled; include **`value`** when clearing), **`defaultValue`**, **`disabled`**, **`calendarProps`**, **`align`** for **`PopoverContent`**. Choosing a day closes the popover. Registry **`coffee-ui add date-picker`** copies **`date-picker.tsx`**, **`calendar.tsx`**, **`popover.tsx`**, **`button.tsx`**, **`popover-position.ts`**, **`merge-refs.ts`**.
+
+### `combobox`
+
+**`Combobox`** composes **`Popover`** + **`Command`**: **`ComboboxTrigger`** (outline + optional chevron), **`ComboboxContent`**, **`ComboboxItem`** (selects value and closes; current value gets **`bg-accent`** / **`aria-selected`**). **`ComboboxTrigger`** supports **`size="sm" | "default" | "lg"`** (same as **`Button`** minus **`icon`**) and **`hideChevron`**. Put leading icons in the trigger by passing them as children before the label (see Storybook). Re-exports **`Command`**, **`CommandInput`**, **`CommandList`**, **`CommandEmpty`**, **`CommandGroup`**, **`CommandSeparator`**. Registry **`coffee-ui add combobox`** installs **`combobox.tsx`**, **`popover.tsx`**, **`command.tsx`**, **`button.tsx`**, **`popover-position.ts`**, **`merge-refs.ts`**; CLI rewrites `../components/popover` and `../components/command` to `./popover` / `./command`.
+
+### Reduced motion
+
+**`navigation-menu`**: viewport / indicator / trigger / link motion uses **`motion-safe:`** / **`motion-reduce:`** (Tailwind). **`coffee-nav-menu-panel-enter`** keyframed animation in the app CSS is wrapped in **`@media (prefers-reduced-motion: no-preference)`** (see playground **`index.css`**). **`CommandItem`** list row hover uses **`motion-safe:transition-colors`**.
 
 ### Theming (OKLCH + Tailwind 3)
 
@@ -34,13 +54,13 @@ Canonical tokens live in **`apps/playground/src/index.css`**:
 
 Consumer apps should copy **both** the CSS variable blocks and **`theme.extend`** from the playground config.
 
-### Components roadmap (not built yet)
+### Components roadmap
 
-*None — extend as needed (e.g. **hover intent**, **navigation viewport** animation).*
+Possible next additions: **date range picker** (popover), richer **combobox** (async options), **data table** recipes. Visual snapshots: root **`pnpm test:visual`** (after **`pnpm build-storybook`**), see **`playwright.config.ts`**.
 
 ### `navigation-menu`
 
-**`NavigationMenu`** (`value` / **`onValueChange`**, **`defaultValue`**, optional **`openOnHover`**, **`openDelay`**, **`closeDelay`**) wraps **`NavigationMenuList`** → **`NavigationMenuItem`** → **`NavigationMenuTrigger`** + **`NavigationMenuContent`**. Without **`NavigationMenuViewport`**, content portaled to **`document.body`** with fixed position. With **`NavigationMenuViewport`** (place under the list), panels share one centered mount + opacity/scale motion; add class **`coffee-nav-menu-panel-enter`** in app CSS for the keyframed enter (see playground **`index.css`**). **`NavigationMenuIndicator`** = optional active-trigger underline. **`NavigationMenuLink`**, **`NavigationMenuSeparator`**, keyboard and outside-dismiss as before.
+**`NavigationMenu`** (`value` / **`onValueChange`**, **`defaultValue`**, optional **`openOnHover`**, **`openDelay`**, **`closeDelay`**) wraps **`NavigationMenuList`** → **`NavigationMenuItem`** → **`NavigationMenuTrigger`** + **`NavigationMenuContent`**. Without **`NavigationMenuViewport`**, content portaled to **`document.body`** with fixed position. With **`NavigationMenuViewport`** (place under the list), panels share one centered mount + opacity/scale motion (respects **`prefers-reduced-motion`** via Tailwind **`motion-*`** utilities). Add class **`coffee-nav-menu-panel-enter`** in app CSS for the keyframed enter when motion is allowed (see playground **`index.css`**). **`NavigationMenuIndicator`** = optional active-trigger underline. **`NavigationMenuLink`**, **`NavigationMenuSeparator`**, keyboard and outside-dismiss as before.
 
 ### `sidebar`
 
