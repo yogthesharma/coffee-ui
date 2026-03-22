@@ -1,0 +1,12 @@
+{
+  "name": "@coffee-ui/cli",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "coffee-ui": "./src/index.mjs"
+  },
+  "dependencies": {
+    "commander": "^12.1.0"
+  }
+}

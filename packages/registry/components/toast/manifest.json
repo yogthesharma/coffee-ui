@@ -1,0 +1,15 @@
+{
+  "install": [
+    {
+      "from": "../../../ui/src/components/toast.tsx",
+      "filename": "toast.tsx"
+    }
+  ],
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0",
+    "@tabler/icons-react": "^3.0.0",
+    "clsx": "^2.0.0",
+    "tailwind-merge": "^2.0.0"
+  }
+}

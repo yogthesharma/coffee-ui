@@ -1,0 +1,13 @@
+{
+  "install": [
+    {
+      "from": "../../../ui/src/components/tabs.tsx",
+      "filename": "tabs.tsx"
+    }
+  ],
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "clsx": "^2.0.0",
+    "tailwind-merge": "^2.0.0"
+  }
+}

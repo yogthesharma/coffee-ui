@@ -1,0 +1,14 @@
+{
+  "name": "coffee-ui",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "coffee-ui": "node packages/cli/src/index.mjs",
+    "storybook": "pnpm --filter @coffee-ui/playground run storybook",
+    "build-storybook": "pnpm --filter @coffee-ui/playground run build-storybook",
+    "typecheck": "pnpm exec tsc -p packages/ui --noEmit && pnpm exec tsc -p apps/playground --noEmit"
+  }
+}

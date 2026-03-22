@@ -1,0 +1,22 @@
+{
+  "install": [
+    {
+      "from": "../../../ui/src/components/dropdown-menu.tsx",
+      "filename": "dropdown-menu.tsx"
+    },
+    {
+      "from": "../../../ui/src/lib/popover-position.ts",
+      "filename": "popover-position.ts"
+    },
+    {
+      "from": "../../../ui/src/lib/merge-refs.ts",
+      "filename": "merge-refs.ts"
+    }
+  ],
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0",
+    "clsx": "^2.0.0",
+    "tailwind-merge": "^2.0.0"
+  }
+}

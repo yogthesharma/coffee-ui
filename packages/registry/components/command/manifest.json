@@ -1,0 +1,17 @@
+{
+  "install": [
+    {
+      "from": "../../../ui/src/components/command.tsx",
+      "filename": "command.tsx"
+    },
+    {
+      "from": "../../../ui/src/lib/merge-refs.ts",
+      "filename": "merge-refs.ts"
+    }
+  ],
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "clsx": "^2.0.0",
+    "tailwind-merge": "^2.0.0"
+  }
+}
