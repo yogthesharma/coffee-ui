@@ -20,8 +20,8 @@ async function resolveRegistryRoot() {
     );
   }
   const candidates = [
-    resolve(__dirname, "../registry"),
     resolve(__dirname, "../../registry"),
+    resolve(__dirname, "../registry"),
   ];
   for (const c of candidates) {
     if (await pathExists(join(c, "components"))) {
@@ -161,7 +161,7 @@ program
           process.exitCode = 1;
           return;
         }
-        const from = resolve(componentDir, relFrom);
+        const from = resolve(REGISTRY_ROOT, relFrom);
         if (!(await pathExists(from))) {
           console.error(`Source missing for "${name}": ${from}`);
           process.exitCode = 1;

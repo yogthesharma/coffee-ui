@@ -1,15 +1,15 @@
 {
   "install": [
     {
-      "from": "../../../ui/src/components/dropdown-menu.tsx",
+      "from": "../ui/src/components/dropdown-menu.tsx",
       "filename": "dropdown-menu.tsx"
     },
     {
-      "from": "../../../ui/src/lib/popover-position.ts",
+      "from": "../ui/src/lib/popover-position.ts",
       "filename": "popover-position.ts"
     },
     {
-      "from": "../../../ui/src/lib/merge-refs.ts",
+      "from": "../ui/src/lib/merge-refs.ts",
       "filename": "merge-refs.ts"
     }
   ],

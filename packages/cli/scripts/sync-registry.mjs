@@ -9,16 +9,27 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const cliRoot = resolve(__dirname, "..");
-const source = resolve(cliRoot, "../registry");
-const dest = resolve(cliRoot, "registry");
+const sourceRegistry = resolve(cliRoot, "../registry");
+const destRegistry = resolve(cliRoot, "registry");
+const sourceUi = resolve(cliRoot, "../ui");
+const destUi = resolve(cliRoot, "ui");
 
-if (!existsSync(source)) {
-  console.error(`sync-registry: source missing: ${source}`);
+if (!existsSync(sourceRegistry)) {
+  console.error(`sync-registry: registry missing: ${sourceRegistry}`);
+  process.exit(1);
+}
+if (!existsSync(sourceUi)) {
+  console.error(`sync-registry: ui package missing: ${sourceUi}`);
   process.exit(1);
 }
 
-if (existsSync(dest)) {
-  rmSync(dest, { recursive: true });
+if (existsSync(destRegistry)) {
+  rmSync(destRegistry, { recursive: true });
 }
-cpSync(source, dest, { recursive: true });
-console.log(`sync-registry: ${source} → ${dest}`);
+if (existsSync(destUi)) {
+  rmSync(destUi, { recursive: true });
+}
+cpSync(sourceRegistry, destRegistry, { recursive: true });
+cpSync(sourceUi, destUi, { recursive: true });
+console.log(`sync-registry: ${sourceRegistry} → ${destRegistry}`);
+console.log(`sync-registry: ${sourceUi} → ${destUi}`);

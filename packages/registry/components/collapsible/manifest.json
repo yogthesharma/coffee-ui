@@ -1,7 +1,7 @@
 {
   "install": [
     {
-      "from": "../../../ui/src/primitives/collapsible.tsx",
+      "from": "../ui/src/primitives/collapsible.tsx",
       "filename": "collapsible.tsx"
     }
   ],

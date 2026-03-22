@@ -1,7 +1,7 @@
 {
   "install": [
     {
-      "from": "../../../ui/src/widgets/radio-group.tsx",
+      "from": "../ui/src/widgets/radio-group.tsx",
       "filename": "radio-group.tsx"
     }
   ],

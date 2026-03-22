@@ -1,7 +1,7 @@
 {
   "install": [
     {
-      "from": "../../../ui/src/primitives/textarea.tsx",
+      "from": "../ui/src/primitives/textarea.tsx",
       "filename": "textarea.tsx"
     }
   ],

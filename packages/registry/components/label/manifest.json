@@ -1,7 +1,7 @@
 {
   "install": [
     {
-      "from": "../../../ui/src/primitives/label.tsx",
+      "from": "../ui/src/primitives/label.tsx",
       "filename": "label.tsx"
     }
   ],

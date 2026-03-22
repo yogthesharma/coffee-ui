@@ -1,2 +1,3 @@
-# Produced by `prepack` / `pnpm pack` / `npm publish`; not committed (dev uses ../../registry).
+# Produced by `prepack` / `pnpm pack` / `npm publish`; dev uses ../../registry + ../ui.
 registry/
+ui/

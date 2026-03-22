@@ -1,11 +1,11 @@
 {
   "install": [
     {
-      "from": "../../../ui/src/components/command.tsx",
+      "from": "../ui/src/components/command.tsx",
       "filename": "command.tsx"
     },
     {
-      "from": "../../../ui/src/lib/merge-refs.ts",
+      "from": "../ui/src/lib/merge-refs.ts",
       "filename": "merge-refs.ts"
     }
   ],

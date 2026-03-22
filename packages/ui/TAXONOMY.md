@@ -3,6 +3,8 @@
 End users still install with a **flat** name: `npx coffee-ui add <name>` (e.g. `button`, `select-menu`).  
 This document maps those names to how we organize **source** under `src/`.
 
+**Registry manifests** (`packages/registry/components/*/manifest.json`): each `install[].from` path is **relative to the registry root** (`packages/registry/`), e.g. `../ui/src/primitives/button.tsx` → `packages/ui/src/...`. The publishable CLI (`packages/cli`) runs `prepack` to copy `registry/` and `ui/` next to each other so the same paths work in the npm tarball.
+
 | Tier           | Folder            | Members |
 |----------------|-------------------|---------|
 | **Foundation** | `foundation/`     | `icons` (plus `lib/utils` at `lib/`) |

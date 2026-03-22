@@ -1,7 +1,7 @@
 {
   "install": [
     {
-      "from": "../../../ui/src/primitives/spinner.tsx",
+      "from": "../ui/src/primitives/spinner.tsx",
       "filename": "spinner.tsx"
     }
   ],

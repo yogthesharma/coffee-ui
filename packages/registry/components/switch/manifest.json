@@ -1,7 +1,7 @@
 {
   "install": [
     {
-      "from": "../../../ui/src/primitives/switch.tsx",
+      "from": "../ui/src/primitives/switch.tsx",
       "filename": "switch.tsx"
     }
   ],

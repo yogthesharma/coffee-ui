@@ -9,6 +9,7 @@
   "files": [
     "src",
     "registry",
+    "ui",
     "README.md"
   ],
   "scripts": {

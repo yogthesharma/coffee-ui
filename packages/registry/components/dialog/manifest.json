@@ -1,15 +1,15 @@
 {
   "install": [
     {
-      "from": "../../../ui/src/components/dialog.tsx",
+      "from": "../ui/src/components/dialog.tsx",
       "filename": "dialog.tsx"
     },
     {
-      "from": "../../../ui/src/lib/use-focus-trap.ts",
+      "from": "../ui/src/lib/use-focus-trap.ts",
       "filename": "use-focus-trap.ts"
     },
     {
-      "from": "../../../ui/src/lib/merge-refs.ts",
+      "from": "../ui/src/lib/merge-refs.ts",
       "filename": "merge-refs.ts"
     }
   ],

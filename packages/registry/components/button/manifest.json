@@ -1,7 +1,7 @@
 {
   "install": [
     {
-      "from": "../../../ui/src/primitives/button.tsx",
+      "from": "../ui/src/primitives/button.tsx",
       "filename": "button.tsx"
     }
   ],

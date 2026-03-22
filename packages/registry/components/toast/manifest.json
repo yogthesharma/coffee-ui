@@ -1,7 +1,7 @@
 {
   "install": [
     {
-      "from": "../../../ui/src/components/toast.tsx",
+      "from": "../ui/src/components/toast.tsx",
       "filename": "toast.tsx"
     }
   ],

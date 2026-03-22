@@ -1,7 +1,7 @@
 {
   "install": [
     {
-      "from": "../../../ui/src/components/tabs.tsx",
+      "from": "../ui/src/components/tabs.tsx",
       "filename": "tabs.tsx"
     }
   ],

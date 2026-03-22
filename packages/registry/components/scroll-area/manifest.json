@@ -1,7 +1,7 @@
 {
   "install": [
     {
-      "from": "../../../ui/src/primitives/scroll-area.tsx",
+      "from": "../ui/src/primitives/scroll-area.tsx",
       "filename": "scroll-area.tsx"
     }
   ],

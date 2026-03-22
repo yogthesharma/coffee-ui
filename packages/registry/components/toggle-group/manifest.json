@@ -1,11 +1,11 @@
 {
   "install": [
     {
-      "from": "../../../ui/src/widgets/toggle-group.tsx",
+      "from": "../ui/src/widgets/toggle-group.tsx",
       "filename": "toggle-group.tsx"
     },
     {
-      "from": "../../../ui/src/primitives/toggle.tsx",
+      "from": "../ui/src/primitives/toggle.tsx",
       "filename": "toggle.tsx"
     }
   ],

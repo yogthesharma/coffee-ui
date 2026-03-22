@@ -1,27 +1,27 @@
 {
   "install": [
     {
-      "from": "../../../ui/src/widgets/date-picker.tsx",
+      "from": "../ui/src/widgets/date-picker.tsx",
       "filename": "date-picker.tsx"
     },
     {
-      "from": "../../../ui/src/widgets/calendar.tsx",
+      "from": "../ui/src/widgets/calendar.tsx",
       "filename": "calendar.tsx"
     },
     {
-      "from": "../../../ui/src/components/popover.tsx",
+      "from": "../ui/src/components/popover.tsx",
       "filename": "popover.tsx"
     },
     {
-      "from": "../../../ui/src/primitives/button.tsx",
+      "from": "../ui/src/primitives/button.tsx",
       "filename": "button.tsx"
     },
     {
-      "from": "../../../ui/src/lib/popover-position.ts",
+      "from": "../ui/src/lib/popover-position.ts",
       "filename": "popover-position.ts"
     },
     {
-      "from": "../../../ui/src/lib/merge-refs.ts",
+      "from": "../ui/src/lib/merge-refs.ts",
       "filename": "merge-refs.ts"
     }
   ],

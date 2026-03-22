@@ -1,7 +1,7 @@
 {
   "install": [
     {
-      "from": "../../../ui/src/components/accordion.tsx",
+      "from": "../ui/src/components/accordion.tsx",
       "filename": "accordion.tsx"
     }
   ],

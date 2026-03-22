@@ -1,7 +1,7 @@
 {
   "install": [
     {
-      "from": "../../../ui/src/components/empty-state.tsx",
+      "from": "../ui/src/components/empty-state.tsx",
       "filename": "empty-state.tsx"
     }
   ],

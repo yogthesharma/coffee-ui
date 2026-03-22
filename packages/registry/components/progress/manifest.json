@@ -1,7 +1,7 @@
 {
   "install": [
     {
-      "from": "../../../ui/src/widgets/progress.tsx",
+      "from": "../ui/src/widgets/progress.tsx",
       "filename": "progress.tsx"
     }
   ],

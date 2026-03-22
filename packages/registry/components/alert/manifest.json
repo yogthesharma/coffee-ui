@@ -1,7 +1,7 @@
 {
   "install": [
     {
-      "from": "../../../ui/src/components/alert.tsx",
+      "from": "../ui/src/components/alert.tsx",
       "filename": "alert.tsx"
     }
   ],

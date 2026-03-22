@@ -1,7 +1,7 @@
 {
   "install": [
     {
-      "from": "../../../ui/src/primitives/checkbox.tsx",
+      "from": "../ui/src/primitives/checkbox.tsx",
       "filename": "checkbox.tsx"
     }
   ],

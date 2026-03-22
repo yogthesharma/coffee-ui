@@ -23,8 +23,8 @@ node packages/cli/src/index.mjs init
 2. From **`packages/cli`**:
 
    ```bash
-   pnpm prepack   # copies ../registry → ./registry (not committed)
-   npm publish    # tarball includes registry/
+   pnpm prepack   # copies ../registry → ./registry and ../ui → ./ui (gitignored)
+   npm publish    # tarball includes registry/ + ui/ source used by manifests
    ```
 
 3. **Versioning:** bump `"version"` here whenever registry manifests or CLI behavior changes so installs stay in sync.

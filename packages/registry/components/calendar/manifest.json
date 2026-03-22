@@ -1,11 +1,11 @@
 {
   "install": [
     {
-      "from": "../../../ui/src/widgets/calendar.tsx",
+      "from": "../ui/src/widgets/calendar.tsx",
       "filename": "calendar.tsx"
     },
     {
-      "from": "../../../ui/src/primitives/button.tsx",
+      "from": "../ui/src/primitives/button.tsx",
       "filename": "button.tsx"
     }
   ],

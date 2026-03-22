@@ -1,7 +1,7 @@
 {
   "install": [
     {
-      "from": "../../../ui/src/components/table.tsx",
+      "from": "../ui/src/components/table.tsx",
       "filename": "table.tsx"
     }
   ],

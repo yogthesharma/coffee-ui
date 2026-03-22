@@ -1,7 +1,7 @@
 {
   "install": [
     {
-      "from": "../../../ui/src/widgets/avatar.tsx",
+      "from": "../ui/src/widgets/avatar.tsx",
       "filename": "avatar.tsx"
     }
   ],

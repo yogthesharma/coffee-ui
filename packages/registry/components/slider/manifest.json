@@ -1,7 +1,7 @@
 {
   "install": [
     {
-      "from": "../../../ui/src/widgets/slider.tsx",
+      "from": "../ui/src/widgets/slider.tsx",
       "filename": "slider.tsx"
     }
   ],

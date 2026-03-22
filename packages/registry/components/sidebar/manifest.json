@@ -1,11 +1,11 @@
 {
   "install": [
     {
-      "from": "../../../ui/src/components/sidebar.tsx",
+      "from": "../ui/src/components/sidebar.tsx",
       "filename": "sidebar.tsx"
     },
     {
-      "from": "../../../ui/src/components/sheet.tsx",
+      "from": "../ui/src/components/sheet.tsx",
       "filename": "sheet.tsx"
     }
   ],

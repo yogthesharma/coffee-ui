@@ -1,11 +1,11 @@
 {
   "install": [
     {
-      "from": "../../../ui/src/components/pagination.tsx",
+      "from": "../ui/src/components/pagination.tsx",
       "filename": "pagination.tsx"
     },
     {
-      "from": "../../../ui/src/primitives/button.tsx",
+      "from": "../ui/src/primitives/button.tsx",
       "filename": "button.tsx"
     }
   ],

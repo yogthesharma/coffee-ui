@@ -1,7 +1,7 @@
 {
   "install": [
     {
-      "from": "../../../ui/src/primitives/separator.tsx",
+      "from": "../ui/src/primitives/separator.tsx",
       "filename": "separator.tsx"
     }
   ],

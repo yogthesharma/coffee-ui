@@ -1,7 +1,7 @@
 {
   "install": [
     {
-      "from": "../../../ui/src/primitives/input-group.tsx",
+      "from": "../ui/src/primitives/input-group.tsx",
       "filename": "input-group.tsx"
     }
   ],

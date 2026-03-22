@@ -1,7 +1,7 @@
 {
   "install": [
     {
-      "from": "../../../ui/src/components/breadcrumb.tsx",
+      "from": "../ui/src/components/breadcrumb.tsx",
       "filename": "breadcrumb.tsx"
     }
   ],
